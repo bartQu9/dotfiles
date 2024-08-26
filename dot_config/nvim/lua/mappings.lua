@@ -43,13 +43,23 @@ map_barbar('n', '<A-c>', '<Cmd>BufferClose<CR>', opts_barbar)
 -- Magic buffer-picking mode
 map_barbar('n', '<C-p>', '<Cmd>BufferPick<CR>', opts_barbar)
 -- Sort automatically by...
-map_barbar('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts_barbar)
-map_barbar('n', '<Space>bn', '<Cmd>BufferOrderByName<CR>', opts_barbar)
-map_barbar('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts_barbar)
-map_barbar('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts_barbar)
-map_barbar('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts_barbar)
+--map_barbar('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts_barbar)
+--map_barbar('n', '<Space>bn', '<Cmd>BufferOrderByName<CR>', opts_barbar)
+--map_barbar('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts_barbar)
+--map_barbar('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts_barbar)
+--map_barbar('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts_barbar)
 -- my custom
 map_barbar('n', '<A-C>', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts_barbar)
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
+
+
+--  telescope 
+local builtin_telescope = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin_telescope.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin_telescope.live_grep, {})
+vim.keymap.set('n', '<leader>fh', builtin_telescope.help_tags, {})
+vim.keymap.set('n', '<leader>b', builtin_telescope.buffers, {})
+vim.keymap.set('n', '<leader>o', builtin_telescope.treesitter, {})
+
