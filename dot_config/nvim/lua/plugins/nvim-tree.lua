@@ -46,6 +46,11 @@ return {
         },
       },
     },
+    actions = {
+      change_dir = {
+        global = true, -- use cd instead of lcd while entering dir in nvim-tree
+      },
+    },
 
 
 
