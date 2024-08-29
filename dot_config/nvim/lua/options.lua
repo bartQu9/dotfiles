@@ -19,6 +19,8 @@ o.softtabstop = 0 -- do not mix Tabs with spaces in insert mode
 o.smarttab = true -- use above settings
 o.expandtab = true -- use spaces to insert Tabs in insert mode
 
+o.scrolloff = 4 -- scroll buffer when 4 lines to the top/bot edge left
+
 -------------------------------------- cmds exec ------------------------------------------
 
 vim.cmd.colorscheme("tokyonight")
