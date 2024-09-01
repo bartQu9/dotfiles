@@ -57,9 +57,20 @@ map_barbar('n', '<A-C>', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts_barba
 
 --  telescope 
 local builtin_telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin_telescope.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin_telescope.live_grep, {})
-vim.keymap.set('n', '<leader>fh', builtin_telescope.help_tags, {})
+vim.keymap.set('n', '<leader>f', builtin_telescope.find_files, {})
+vim.keymap.set('n', '<leader>F', function() require('telescope.builtin').find_files({follow=true, hidden=true, no_ignore=true, no_ignore_parent=true}) end, {})
+vim.keymap.set('n', '<leader>g', builtin_telescope.live_grep, {})
+--vim.keymap.set('n', '<leader>G', function() require('telescope.builtin').live_grep({follow=true, hidden=true, no_ignore=true, no_ignore_parent=true}) end, {})
+--vim.keymap.set('n', '<leader>fh', builtin_telescope.help_tags, {})
 vim.keymap.set('n', '<leader>b', builtin_telescope.buffers, {})
-vim.keymap.set('n', '<leader>o', builtin_telescope.treesitter, {})
+vim.keymap.set('n', '<leader>o', builtin_telescope.lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>t', builtin_telescope.lsp_dynamic_workspace_symbols, {})
+vim.keymap.set('n', '<leader>r', builtin_telescope.lsp_references, {})
+vim.keymap.set('n', '<leader>d', builtin_telescope.lsp_definitions, {})
+vim.keymap.set('n', '<leader>i', builtin_telescope.lsp_implementations, {})
+vim.keymap.set('n', '<leader>u', builtin_telescope.lsp_incoming_calls, {})
+vim.keymap.set('n', '<leader>U', builtin_telescope.lsp_outgoing_calls, {})
+
+
+
 
