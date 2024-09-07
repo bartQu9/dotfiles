@@ -6,6 +6,8 @@ return {
 --        "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-        require("lspconfig").clangd.setup{}
+        require("lspconfig").clangd.setup{
+            cmd = {"clangd", "--enable-config", "--log=error"} -- error/info/verbose
+        }
     end,
 }

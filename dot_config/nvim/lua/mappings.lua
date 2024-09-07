@@ -57,20 +57,37 @@ map_barbar('n', '<A-C>', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts_barba
 
 --  telescope 
 local builtin_telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>f', builtin_telescope.find_files, {})
-vim.keymap.set('n', '<leader>F', function() require('telescope.builtin').find_files({follow=true, hidden=true, no_ignore=true, no_ignore_parent=true}) end, {})
-vim.keymap.set('n', '<leader>g', builtin_telescope.live_grep, {})
---vim.keymap.set('n', '<leader>G', function() require('telescope.builtin').live_grep({follow=true, hidden=true, no_ignore=true, no_ignore_parent=true}) end, {})
---vim.keymap.set('n', '<leader>fh', builtin_telescope.help_tags, {})
-vim.keymap.set('n', '<leader>b', builtin_telescope.buffers, {})
-vim.keymap.set('n', '<leader>o', builtin_telescope.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>t', builtin_telescope.lsp_dynamic_workspace_symbols, {})
-vim.keymap.set('n', '<leader>r', builtin_telescope.lsp_references, {})
-vim.keymap.set('n', '<leader>d', builtin_telescope.lsp_definitions, {})
-vim.keymap.set('n', '<leader>i', builtin_telescope.lsp_implementations, {})
-vim.keymap.set('n', '<leader>u', builtin_telescope.lsp_incoming_calls, {})
-vim.keymap.set('n', '<leader>U', builtin_telescope.lsp_outgoing_calls, {})
+map('n', '<leader>f', builtin_telescope.find_files, {})
+map('n', '<leader>F', function() require('telescope.builtin').find_files({follow=true, hidden=true, no_ignore=true, no_ignore_parent=true}) end, {})
+map('n', '<leader>g', builtin_telescope.live_grep, {})
+-- Telescope.nvim uses ripgrep (rg) to do the live grepping in its search. -L follows symlinks
+map('n', '<leader>G', function() require('telescope.builtin').live_grep({additional_args={"--hidden", "--no-ignore", "-L"}}) end, {})
+--map('n', '<leader>G', function() require('telescope.builtin').live_grep({follow=true, hidden=true, no_ignore=true, no_ignore_parent=true}) end, {})
+--map('n', '<leader>fh', builtin_telescope.help_tags, {})
+map('n', '<leader>b', builtin_telescope.buffers, {})
+map('n', '<leader>o', builtin_telescope.lsp_document_symbols, {})
+map('n', '<leader>t', builtin_telescope.lsp_dynamic_workspace_symbols, {})
+map('n', '<leader>r', builtin_telescope.lsp_references, {})
+map('n', '<leader>d', builtin_telescope.lsp_definitions, {})
+map('n', '<leader>i', builtin_telescope.lsp_implementations, {})
+map('n', '<leader>u', builtin_telescope.lsp_incoming_calls, {})
+map('n', '<leader>U', builtin_telescope.lsp_outgoing_calls, {})
 
+-- lspconfig clangd
+map('n', '<leader><Tab>', '<Cmd>ClangdSwitchSourceHeader<CR>', {})
+
+-- LuaSnip
+-- local ls = require("luasnip")
+--
+-- map({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
+-- map({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
+-- map({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+--
+-- map({"i", "s"}, "<C-E>", function()
+-- 	if ls.choice_active() then
+-- 		ls.change_choice(1)
+-- 	end
+-- end, {silent = true})
 
 
 
