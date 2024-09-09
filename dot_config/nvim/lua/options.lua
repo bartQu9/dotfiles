@@ -21,6 +21,8 @@ o.expandtab = true -- use spaces to insert Tabs in insert mode
 
 o.scrolloff = 4 -- scroll buffer when 4 lines to the top/bot edge left
 
+o.mouse = ""
+
 -------------------------------------- cmds exec ------------------------------------------
 
 vim.cmd.colorscheme("tokyonight")

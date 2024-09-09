@@ -60,7 +60,7 @@ local builtin_telescope = require('telescope.builtin')
 map('n', '<leader>f', builtin_telescope.find_files, {})
 map('n', '<leader>F', function() require('telescope.builtin').find_files({follow=true, hidden=true, no_ignore=true, no_ignore_parent=true}) end, {})
 map('n', '<leader>g', builtin_telescope.live_grep, {})
--- Telescope.nvim uses ripgrep (rg) to do the live grepping in its search. -L follows symlinks
+-- Telescif vim.pe.nvim uses ripgrep (rg) to do the live grepping in its search. -L follows symlinks
 map('n', '<leader>G', function() require('telescope.builtin').live_grep({additional_args={"--hidden", "--no-ignore", "-L"}}) end, {})
 --map('n', '<leader>G', function() require('telescope.builtin').live_grep({follow=true, hidden=true, no_ignore=true, no_ignore_parent=true}) end, {})
 --map('n', '<leader>fh', builtin_telescope.help_tags, {})
@@ -73,21 +73,21 @@ map('n', '<leader>i', builtin_telescope.lsp_implementations, {})
 map('n', '<leader>u', builtin_telescope.lsp_incoming_calls, {})
 map('n', '<leader>U', builtin_telescope.lsp_outgoing_calls, {})
 
+
+-- LSP
+toggle_diagnostic = function()
+    if vim.diagnostic.is_enabled() then
+        vim.diagnostic.disable()
+    else
+        vim.diagnostic.enable()
+    end
+end
+
+-- LSP on/off diagnostic
+map('n', '<F2>', toggle_diagnostic, {})
 -- lspconfig clangd
 map('n', '<leader><Tab>', '<Cmd>ClangdSwitchSourceHeader<CR>', {})
 
--- LuaSnip
--- local ls = require("luasnip")
---
--- map({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
--- map({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
--- map({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
---
--- map({"i", "s"}, "<C-E>", function()
--- 	if ls.choice_active() then
--- 		ls.change_choice(1)
--- 	end
--- end, {silent = true})
 
 
 
