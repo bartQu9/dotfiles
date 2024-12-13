@@ -9,5 +9,7 @@ return {
         require("lspconfig").clangd.setup{
             cmd = {"clangd", "--enable-config", "--log=error"} -- error/info/verbose
         }
+    require'lspconfig'.pylyzer.setup{}
+    require'lspconfig'.lua_ls.setup{}
     end,
 }
