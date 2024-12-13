@@ -11,8 +11,8 @@ return {
             -- layout_strategy = 'horizontal',
             layout_config = {
                 -- height = 0.95
-                 -- prompt_position = 'bottom',
-                 -- mirror = 0
+                prompt_position = 'top',
+                mirror = 1
             },
         },
     }
