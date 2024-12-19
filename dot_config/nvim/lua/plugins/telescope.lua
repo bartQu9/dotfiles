@@ -6,6 +6,7 @@ return {
     },
     opts = {
         defaults = {
+            scroll_strategy = 'limit',
             sorting_strategy = 'ascending',
             layout_strategy = 'vertical',
             -- layout_strategy = 'horizontal',
