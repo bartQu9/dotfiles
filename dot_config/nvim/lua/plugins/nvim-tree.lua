@@ -19,7 +19,7 @@ return {
             update_root = false,
         },
         view = {
-            --width = 30,
+            width = 60,
             --preserve_window_proportions = true,
             -- float = {
             --   enable = true,

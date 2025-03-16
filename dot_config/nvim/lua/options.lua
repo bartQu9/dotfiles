@@ -23,6 +23,8 @@ o.scrolloff = 4         -- scroll buffer when 4 lines to the top/bot edge left
 
 o.mouse = ""
 
--------------------------------------- cmds exec ------------------------------------------
+----------------------------------- plugin options ---------------------------------------
+vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "NormalFloat", "NvimTreeNormal" })
 
+-------------------------------------- cmds exec ------------------------------------------
 vim.cmd.colorscheme("tokyonight")
