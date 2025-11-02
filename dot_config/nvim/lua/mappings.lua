@@ -76,10 +76,18 @@ map('n', '<leader>U', builtin_telescope.lsp_outgoing_calls, {})
 
 -- LSP
 toggle_diagnostic = function()
-    if vim.diagnostic.is_enabled() then
-        vim.diagnostic.disable()
+    local curr_diag_cfg = vim.diagnostic.config()
+    local vtext_enabled = curr_diag_cfg.virtual_text
+
+    if vim.diagnostic.is_enabled() and vtext_enabled then
+        vim.diagnostic.enable(false)
+    elseif vim.diagnostic.is_enabled() and not vtext_enabled then
+        curr_diag_cfg.virtual_text = true
+        vim.diagnostic.config(curr_diag_cfg)
     else
-        vim.diagnostic.enable()
+        curr_diag_cfg.virtual_text = false
+        vim.diagnostic.config(curr_diag_cfg)
+        vim.diagnostic.enable(true)
     end
 end
 

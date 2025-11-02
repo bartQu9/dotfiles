@@ -15,5 +15,11 @@ return {
         require 'lspconfig'.texlab.setup {}
         require 'lspconfig'.cmake.setup {}
 
+        require 'lspconfig'.hdl_checker.setup {
+            cmd = { 'hdl_checker', '--lsp' },
+            filetypes = { 'vhdl', 'verilog', 'systemverilog' },
+            root_markers = { '.git' },
+        }
+
     end,
 }
