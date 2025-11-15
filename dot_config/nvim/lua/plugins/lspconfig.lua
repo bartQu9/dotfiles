@@ -9,17 +9,21 @@ return {
         vim.lsp.config('clangd', {
             cmd = { "clangd", "--enable-config", "--log=error" } -- error/info/verbose
         })
-        -- require'lspconfig'.pylyzer.setup{}
+        vim.lsp.enable('clangd')
+
         vim.lsp.config('pyright', {})
+        vim.lsp.enable('pyright')
+
         vim.lsp.config('lua_ls', {})
+        vim.lsp.enable('lua_ls')
+
         vim.lsp.config('texlab', {})
+        vim.lsp.enable('texlab')
+
         vim.lsp.config('cmake', {})
+        vim.lsp.enable('cmake')
 
-        vim.lsp.config('hdl_checker', {
-            cmd = { 'hdl_checker', '--lsp' },
-            filetypes = { 'vhdl', 'verilog', 'systemverilog' },
-            root_markers = { '.git' },
-        })
-
+        vim.lsp.config('vhdl_ls', {}) -- rust_hdl
+        vim.lsp.enable('vhdl_ls')
     end,
 }
